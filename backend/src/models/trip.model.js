@@ -65,6 +65,10 @@ const tripSchema = new mongoose.Schema(
       default: null,
     },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  },
 );
 export default mongoose.model("Trip", tripSchema);

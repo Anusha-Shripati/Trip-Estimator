@@ -7,12 +7,12 @@ import {
   deleteTripController,
 } from "../controllers/trip.controller.js";
 
-const api = express.Router();
+const router = express.Router();
 
-api.get("/api/trips/list", getAllTripsController);
-api.get("/trips/:id", getTripsByIdController);
-api.post("/trips", createTripController);
-api.put("/trips/:id", updatedTripController);
-api.delete("/trips/:id", deleteTripController);
+router.get("/", getAllTripsController);
+router.get("/:id", getTripsByIdController);
+router.post("/", createTripController);
+router.put("/:id", updatedTripController);
+router.delete("/:id", deleteTripController);
 
-export default api;
+export default router;

@@ -4,7 +4,7 @@ import {
   getTripByIDService,
   updatedTripService,
   deletedTripService,
-} from "../services/trip.services";
+} from "../services/trip.services.js";
 
 export const createTripController = async (req, res) => {
   try {
@@ -24,7 +24,7 @@ export const getAllTripsController = async (req, res) => {
     if (!getAllTrips) {
       throw new Error("Trips not found");
     }
-    res.status(200).json(data);
+    res.status(200).json(getAllTrips);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
