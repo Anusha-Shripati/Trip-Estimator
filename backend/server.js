@@ -1,6 +1,6 @@
 import app from "./app.js";
 import { connectDB } from "./src/config/database.js";
-const PORT = 3000;
+const PORT = 4000;
 
 connectDB();
 

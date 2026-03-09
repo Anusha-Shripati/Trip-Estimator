@@ -2,7 +2,7 @@ import mongoose, { model } from "mongoose";
 
 const userShema = new mongoose.Schema(
   {
-    userName: {
+    username: {
       type: String,
       required: true,
       trim: true,
@@ -21,6 +21,14 @@ const userShema = new mongoose.Schema(
     isActive: {
       type: Boolean,
       default: true,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    lastLogin: {
+      type: Date,
+      default: null,
     },
   },
   { timestamps: true },
