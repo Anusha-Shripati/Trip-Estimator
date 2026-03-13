@@ -8,7 +8,8 @@ import {
 
 export const createTripController = async (req, res) => {
   try {
-    const createtrip = await createNewTripService(req.body);
+    const tripData = { ...req.body, created_by: req.user.id };
+    const createtrip = await createNewTripService(tripData);
     if (!createtrip) {
       throw new Error("Trip not found");
     }
@@ -20,7 +21,7 @@ export const createTripController = async (req, res) => {
 
 export const getAllTripsController = async (req, res) => {
   try {
-    const getAllTrips = await getAllTripsService();
+    const getAllTrips = await getAllTripsService({ created_by: req.user.id });
     if (!getAllTrips) {
       throw new Error("Trips not found");
     }

@@ -11,3 +11,4 @@ const validator = (schema) => {
     next();
   };
 };
+export default validator;

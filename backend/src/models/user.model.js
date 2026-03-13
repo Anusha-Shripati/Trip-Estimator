@@ -1,8 +1,8 @@
-import mongoose, { model } from "mongoose";
+import mongoose from "mongoose";
 
 const userShema = new mongoose.Schema(
   {
-    username: {
+    fullName: {
       type: String,
       required: true,
       trim: true,
@@ -17,6 +17,10 @@ const userShema = new mongoose.Schema(
       type: String,
       required: true,
       select: false,
+    },
+    profileImage: {
+      type: String,
+      required: false,
     },
     isActive: {
       type: Boolean,
