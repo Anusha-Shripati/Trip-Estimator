@@ -1,6 +1,6 @@
 import Auth from "../models/user.model.js";
 import { comparePassword, hashPassword } from "../utils/passwordHashing.js";
-import { generateToken } from "../utils/jwt.js";
+import { generateRefreshToken, generateToken } from "../utils/jwt.js";
 export const signupService = async (userData, file) => {
   const { fullName, email, password } = userData;
   const profileImage = file ? file.filename : null;
@@ -35,5 +35,6 @@ export const signinService = async (userData) => {
     throw new Error("Invalid email or password");
   }
   const token = generateToken({ id: user._id, email: user.email });
-  return { user, token };
+  const refreshToken = generateRefreshToken({ id: user._id });
+  return { user, token, refreshToken };
 };

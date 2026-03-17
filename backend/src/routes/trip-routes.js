@@ -9,11 +9,10 @@ import {
 } from "../controllers/trip.controller.js";
 
 const router = express.Router();
-// router.use(authMiddleware);
-router.get("/", getAllTripsController);
-router.get("/:id", getTripsByIdController);
-router.post("/", createTripController);
-router.put("/:id", updatedTripController);
-router.delete("/:id", deleteTripController);
+router.get("/", authMiddleware, getAllTripsController);
+router.get("/:id", authMiddleware, getTripsByIdController);
+router.post("/", authMiddleware, createTripController);
+router.put("/:id", authMiddleware, updatedTripController);
+router.delete("/:id", authMiddleware, deleteTripController);
 
 export default router;
